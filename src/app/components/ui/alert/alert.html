@@ -1,0 +1,11 @@
+<div [class]="wrapperClasses" role="alert">
+  <span [class]="iconClasses + ' mt-0.5 shrink-0 font-bold text-base'" aria-hidden="true">{{ icon }}</span>
+  <div class="flex flex-col gap-1">
+    @if (title) {
+      <p class="font-semibold">{{ title }}</p>
+    }
+    <div class="text-sm">
+      <ng-content />
+    </div>
+  </div>
+</div>
