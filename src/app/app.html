@@ -1,0 +1,118 @@
+<div class="min-h-screen bg-gray-50 font-sans">
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl font-bold text-blue-600">Brainance</span>
+        <app-badge variant="primary">Beta</app-badge>
+      </div>
+      <nav class="flex items-center gap-2">
+        <app-button variant="ghost" size="sm">Modules</app-button>
+        <app-button variant="ghost" size="sm">Simulations</app-button>
+        <app-button variant="primary" size="sm">Get Started</app-button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+
+    <!-- Hero -->
+    <section class="text-center space-y-4">
+      <h1 class="text-4xl font-bold text-gray-900 tracking-tight">
+        Learn Finance, Simplified
+      </h1>
+      <p class="max-w-xl mx-auto text-lg text-gray-500">
+        Educational modules on fixed income, investment funds, and financial regulations in Brazil.
+      </p>
+      <div class="flex items-center justify-center gap-3">
+        <app-button variant="primary" size="lg">Explore Modules</app-button>
+        <app-button variant="outline" size="lg">View Simulations</app-button>
+      </div>
+    </section>
+
+    <!-- Design System Showcase -->
+    <section class="space-y-8">
+      <h2 class="text-2xl font-semibold text-gray-800">Design System</h2>
+
+      <!-- Buttons -->
+      <app-card title="Buttons" subtitle="Available variants and sizes">
+        <div class="space-y-4">
+          <div class="flex flex-wrap gap-3 items-center">
+            <app-button variant="primary">Primary</app-button>
+            <app-button variant="secondary">Secondary</app-button>
+            <app-button variant="outline">Outline</app-button>
+            <app-button variant="ghost">Ghost</app-button>
+            <app-button variant="danger">Danger</app-button>
+            <app-button variant="primary" [disabled]="true">Disabled</app-button>
+          </div>
+          <div class="flex flex-wrap gap-3 items-center">
+            <app-button variant="primary" size="sm">Small</app-button>
+            <app-button variant="primary" size="md">Medium</app-button>
+            <app-button variant="primary" size="lg">Large</app-button>
+          </div>
+        </div>
+      </app-card>
+
+      <!-- Alerts -->
+      <app-card title="Alerts" subtitle="Status and feedback messages">
+        <div class="space-y-3">
+          <app-alert variant="info" title="Information">
+            This is an informational message for the user.
+          </app-alert>
+          <app-alert variant="success" title="Success">
+            Your action was completed successfully.
+          </app-alert>
+          <app-alert variant="warning" title="Warning">
+            Please review before continuing.
+          </app-alert>
+          <app-alert variant="danger" title="Error">
+            Something went wrong. Please try again.
+          </app-alert>
+        </div>
+      </app-card>
+
+      <!-- Badges -->
+      <app-card title="Badges" subtitle="Labels and status indicators">
+        <div class="flex flex-wrap gap-2">
+          <app-badge variant="default">Default</app-badge>
+          <app-badge variant="primary">Primary</app-badge>
+          <app-badge variant="success">Success</app-badge>
+          <app-badge variant="warning">Warning</app-badge>
+          <app-badge variant="danger">Danger</app-badge>
+        </div>
+      </app-card>
+
+      <!-- Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <app-card title="Fixed Income" subtitle="Learn the basics of bonds and rates">
+          <p class="text-sm text-gray-600">
+            Explore government bonds, corporate bonds, and how interest rates affect returns.
+          </p>
+          <div class="mt-4">
+            <app-button variant="outline" size="sm">Start Module</app-button>
+          </div>
+        </app-card>
+        <app-card title="Investment Funds" subtitle="Mutual funds and ETFs explained">
+          <p class="text-sm text-gray-600">
+            Understand fund structures, fees, and how to evaluate fund performance.
+          </p>
+          <div class="mt-4">
+            <app-button variant="outline" size="sm">Start Module</app-button>
+          </div>
+        </app-card>
+        <app-card title="Regulations" subtitle="Brazilian financial regulations">
+          <p class="text-sm text-gray-600">
+            Navigate CVM rules, Bacen guidelines, and compliance requirements.
+          </p>
+          <div class="mt-4">
+            <app-button variant="outline" size="sm">Start Module</app-button>
+          </div>
+        </app-card>
+      </div>
+    </section>
+  </main>
+
+  <!-- Router outlet for future routes -->
+  <router-outlet />
+</div>
