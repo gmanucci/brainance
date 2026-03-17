@@ -39,4 +39,15 @@ Todos os swaps no Brasil devem ser registrados na **B3** (sistemas Balcão ou CE
 
 > Swaps não são sujeitos a IOF após 30 dias do início do contrato.
 
+## Diagrama de fluxo de um swap CDI × Prefixado
+
+```mermaid
+sequenceDiagram
+    participant Empresa
+    participant Banco
+    Empresa->>Banco: Paga CDI + spread (custo da dívida original)
+    Banco->>Empresa: Paga taxa prefixada acordada
+    Note over Empresa,Banco: Liquidação periódica da diferença líquida
+```
+
 > *Em construção: mais conteúdo será adicionado em breve.*
