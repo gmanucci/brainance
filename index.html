@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brainance – Financial Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ── Top Navigation Bar ── -->
+  <header class="topbar" role="banner">
+    <!-- Hamburger / close button – only meaningful on mobile -->
+    <button
+      id="menu-btn"
+      class="topbar__menu-btn"
+      type="button"
+      aria-controls="sidebar"
+      aria-expanded="false"
+      aria-label="Open navigation menu"
+    >
+      <!-- Hamburger icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="3" y1="6"  x2="21" y2="6"  />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+
+    <a href="#" class="topbar__brand">
+      <span class="topbar__logo">Brainance</span>
+      <span class="topbar__badge">Beta</span>
+    </a>
+  </header>
+
+  <!-- ── Overlay (mobile) – closes sidebar when tapped ── -->
+  <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+  <div class="body-area">
+
+    <!-- ── Sidebar Navigation ── -->
+    <nav id="sidebar" class="sidebar" aria-label="Main navigation">
+
+      <div class="sidebar__section">
+        <p class="sidebar__section-title">Learn</p>
+        <ul class="sidebar__nav" role="list">
+          <li class="sidebar__nav-item">
+            <a href="#" class="active">
+              <span class="nav-icon">📚</span>
+              Modules
+            </a>
+          </li>
+          <li class="sidebar__nav-item">
+            <a href="#">
+              <span class="nav-icon">🏦</span>
+              Fixed Income
+            </a>
+          </li>
+          <li class="sidebar__nav-item">
+            <a href="#">
+              <span class="nav-icon">📈</span>
+              Investment Funds
+            </a>
+          </li>
+          <li class="sidebar__nav-item">
+            <a href="#">
+              <span class="nav-icon">⚖️</span>
+              Regulations
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar__section">
+        <p class="sidebar__section-title">Tools</p>
+        <ul class="sidebar__nav" role="list">
+          <li class="sidebar__nav-item">
+            <a href="#">
+              <span class="nav-icon">🔢</span>
+              Simulations
+            </a>
+          </li>
+          <li class="sidebar__nav-item">
+            <a href="#">
+              <span class="nav-icon">🧮</span>
+              Calculator
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar__section">
+        <p class="sidebar__section-title">Account</p>
+        <ul class="sidebar__nav" role="list">
+          <li class="sidebar__nav-item">
+            <a href="#">
+              <span class="nav-icon">⚙️</span>
+              Settings
+            </a>
+          </li>
+          <li class="sidebar__nav-item">
+            <a href="#">
+              <span class="nav-icon">❓</span>
+              Help
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </nav>
+
+    <!-- ── Main Content ── -->
+    <main class="main-content" id="main-content">
+
+      <!-- Hero Banner -->
+      <section class="hero" aria-labelledby="hero-title">
+        <h1 class="hero__title" id="hero-title">Master Brazilian Finance 🇧🇷</h1>
+        <p class="hero__body">
+          Structured modules on fixed income, investment funds, and financial
+          regulations — all in one place, at your own pace.
+        </p>
+        <a href="#" class="hero__cta">Get Started →</a>
+      </section>
+
+      <!-- Modules Section -->
+      <section aria-labelledby="modules-title">
+        <h2 class="section-title" id="modules-title">Featured Modules</h2>
+        <div class="cards-grid">
+
+          <article class="card">
+            <div class="card__icon">🏦</div>
+            <h3 class="card__title">Fixed Income Basics</h3>
+            <p class="card__desc">
+              Understand Tesouro Direto, CDBs, LCIs, LCAs, and how interest
+              rates affect bond prices.
+            </p>
+            <span class="card__tag card__tag--blue">Beginner</span>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">📈</div>
+            <h3 class="card__title">Investment Funds</h3>
+            <p class="card__desc">
+              Explore FIIs, equity funds, and multi-market funds. Learn how to
+              read a fund's prospectus.
+            </p>
+            <span class="card__tag card__tag--green">Intermediate</span>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">⚖️</div>
+            <h3 class="card__title">CVM Regulations</h3>
+            <p class="card__desc">
+              Navigate the regulatory landscape: CVM, BACEN, and ANBIMA rules
+              that govern the market.
+            </p>
+            <span class="card__tag card__tag--amber">Advanced</span>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">🔢</div>
+            <h3 class="card__title">Interest Rate Simulator</h3>
+            <p class="card__desc">
+              Model CDI-linked returns, IPCA+ scenarios, and pre-fixed rate
+              comparisons interactively.
+            </p>
+            <span class="card__tag card__tag--blue">Tool</span>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">📊</div>
+            <h3 class="card__title">Portfolio Analysis</h3>
+            <p class="card__desc">
+              Evaluate diversification, risk-adjusted returns, and duration of
+              a fixed income portfolio.
+            </p>
+            <span class="card__tag card__tag--green">Intermediate</span>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">🧮</div>
+            <h3 class="card__title">Mark-to-Market</h3>
+            <p class="card__desc">
+              Learn how Brazilian bonds are marked to market daily and what
+              that means for your portfolio.
+            </p>
+            <span class="card__tag card__tag--amber">Advanced</span>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+  </div><!-- /.body-area -->
+
+</div><!-- /.app-shell -->
+
+<script src="app.js"></script>
+</body>
+</html>
