@@ -1,0 +1,44 @@
+<div class="px-8 py-12 max-w-5xl">
+  <!-- Hero -->
+  <div class="mb-12">
+    <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
+      brainance
+    </h1>
+    <p class="text-xl text-slate-600 dark:text-slate-300 max-w-2xl">
+      Plataforma de estudos sobre mercado financeiro brasileiro — renda fixa, fundos,
+      títulos, ações, derivativos e regulamentação.
+    </p>
+  </div>
+
+  <!-- Topic cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    @for (section of topics; track section.featureKey) {
+      <a
+        [routerLink]="section.items[0].path"
+        class="group flex flex-col justify-between rounded-xl border border-slate-200 dark:border-slate-700
+               bg-white dark:bg-slate-800 p-5 shadow-sm hover:shadow-md hover:border-blue-300
+               dark:hover:border-blue-700 transition-all"
+      >
+        <div>
+          <h2 class="font-semibold text-slate-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            {{ section.title }}
+          </h2>
+          <ul class="mt-2 space-y-0.5">
+            @for (item of section.items.slice(0, 4); track item.path) {
+              <li class="text-sm text-slate-500 dark:text-slate-400 truncate">{{ item.label }}</li>
+            }
+            @if (section.items.length > 4) {
+              <li class="text-sm text-slate-400 dark:text-slate-500">+ {{ section.items.length - 4 }} mais…</li>
+            }
+          </ul>
+        </div>
+        <div class="mt-4 flex items-center text-blue-600 dark:text-blue-400 text-sm font-medium">
+          <span>Começar</span>
+          <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+    }
+  </div>
+</div>
