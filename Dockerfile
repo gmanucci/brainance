@@ -1,5 +1,5 @@
 # ── Stage 1: build ────────────────────────────────────────────────────────────
-FROM node:22-alpine AS builder
+FROM docker.io/library/node:22-alpine AS builder
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ COPY . .
 RUN npx ng build --configuration production
 
 # ── Stage 2: serve ────────────────────────────────────────────────────────────
-FROM nginx:1.27-alpine AS runner
+FROM docker.io/library/nginx:1.27-alpine AS runner
 
 # Remove default nginx static assets
 RUN rm -rf /usr/share/nginx/html/*

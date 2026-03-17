@@ -7,7 +7,7 @@ services:
     container_name: brainance
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "8180:80"
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost/"]
       interval: 30s
