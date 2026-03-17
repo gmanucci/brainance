@@ -1,0 +1,16 @@
+services:
+  brainance:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: brainance:latest
+    container_name: brainance
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
