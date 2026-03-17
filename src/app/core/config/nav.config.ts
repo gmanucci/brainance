@@ -57,6 +57,18 @@ export const NAV_CONFIG: NavSection[] = [
     ],
   },
   {
+    title: 'Infraestrutura de Corretora',
+    featureKey: 'corretora',
+    items: [
+      { label: 'Visão Geral', path: '/corretora' },
+      { label: 'Ordens e OMS', path: '/corretora/ordens' },
+      { label: 'Aplicação e Resgate', path: '/corretora/aplicacao-resgate' },
+      { label: 'Posições do Cliente', path: '/corretora/posicoes' },
+      { label: 'Conectividade com Exchanges', path: '/corretora/conectividade' },
+      { label: 'Manutenção da Corretora', path: '/corretora/infraestrutura' },
+    ],
+  },
+  {
     title: 'Regulamentação',
     featureKey: 'regulamentacao',
     items: [
