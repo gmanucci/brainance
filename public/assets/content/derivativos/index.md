@@ -36,6 +36,18 @@ Nos contratos futuros, o resultado financeiro é calculado e liquidado **diariam
 | Arbitrador | Explorar ineficiências de precificação |
 | Market maker | Fornecer liquidez ao mercado |
 
+## Classificação dos derivativos
+
+```mermaid
+graph TD
+  A[Derivativos] --> B[Negociados em Bolsa]
+  A --> C[Balcão - OTC]
+  B --> D[Contratos Futuros]
+  B --> E[Opções]
+  C --> F[Swaps]
+  C --> G[Termos]
+```
+
 ## Regulamentação
 
 Derivativos negociados em bolsa são regulamentados pela **CVM** e pela **B3** (autorregulação). Derivativos de balcão (OTC) são registrados na B3 ou CETIP (agora parte da B3) e supervisionados pelo **BCB** quando envolvem instituições financeiras.
