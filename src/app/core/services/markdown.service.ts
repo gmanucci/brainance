@@ -5,6 +5,21 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { marked } from 'marked';
 
+function escapeMermaidText(text: string): string {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+marked.use({
+  renderer: {
+    code({ text, lang }) {
+      if (lang === 'mermaid') {
+        return `<pre class="mermaid">${escapeMermaidText(text)}</pre>`;
+      }
+      return false;
+    },
+  },
+});
+
 @Injectable({ providedIn: 'root' })
 export class MarkdownService {
   private readonly http = inject(HttpClient);
