@@ -37,6 +37,11 @@ export const routes: Routes = [
           import('./features/derivatives/derivatives.routes').then(m => m.DERIVATIVES_ROUTES),
       },
       {
+        path: 'corretora',
+        loadChildren: () =>
+          import('./features/broker/broker.routes').then(m => m.BROKER_ROUTES),
+      },
+      {
         path: 'regulamentacao',
         loadChildren: () =>
           import('./features/regulations/regulations.routes').then(m => m.REGULATIONS_ROUTES),
