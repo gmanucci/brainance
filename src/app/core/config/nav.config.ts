@@ -69,6 +69,15 @@ export const NAV_CONFIG: NavSection[] = [
     ],
   },
   {
+    title: 'RLP — Retail Liquidity Provider',
+    featureKey: 'rlp',
+    items: [
+      { label: 'Visão Geral', path: '/rlp' },
+      { label: 'Aspecto de Negócios', path: '/rlp/negocios' },
+      { label: 'Aspecto Técnico', path: '/rlp/tecnico' },
+    ],
+  },
+  {
     title: 'Regulamentação',
     featureKey: 'regulamentacao',
     items: [

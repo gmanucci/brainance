@@ -42,6 +42,11 @@ export const routes: Routes = [
           import('./features/broker/broker.routes').then(m => m.BROKER_ROUTES),
       },
       {
+        path: 'rlp',
+        loadChildren: () =>
+          import('./features/rlp/rlp.routes').then(m => m.RLP_ROUTES),
+      },
+      {
         path: 'regulamentacao',
         loadChildren: () =>
           import('./features/regulations/regulations.routes').then(m => m.REGULATIONS_ROUTES),
