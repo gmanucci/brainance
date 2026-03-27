@@ -168,6 +168,18 @@
     "officialUrl": "https://www.anbima.com.br/pt_br/autorregular/guias/guia-fii.htm"
   },
   {
+    "id": "b3-regulamento-rlp",
+    "title": "Regulamento de Operações — Retail Liquidity Provider (RLP)",
+    "issuer": "B3",
+    "type": "Regulamento",
+    "number": "RLP",
+    "date": "2020-07-01",
+    "summary": "Define as regras de credenciamento e operação do programa Retail Liquidity Provider (RLP) da B3, que permite a Provedores de Liquidez oferecer preços melhorados a investidores pessoa física no mercado à vista de ações.",
+    "topics": ["acoes", "rlp", "geral"],
+    "localPath": null,
+    "officialUrl": "https://www.b3.com.br/pt_br/regulacao/regulamentos/regulamentos-e-manuais.htm"
+  },
+  {
     "id": "cvm-deliberacao-734",
     "title": "Deliberação CVM nº 734 — Normas de Contabilidade",
     "issuer": "CVM",
