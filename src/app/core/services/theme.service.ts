@@ -3,6 +3,11 @@ import { isPlatformBrowser } from '@angular/common';
 
 export type Theme = 'light' | 'dark';
 
+const THEME_COLORS: Record<Theme, string> = {
+  light: '#ffffff',
+  dark: '#0f172a', // Tailwind slate-900
+};
+
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
   private readonly platformId = inject(PLATFORM_ID);
@@ -16,6 +21,11 @@ export class ThemeService {
       if (isPlatformBrowser(this.platformId)) {
         document.documentElement.setAttribute('data-theme', t);
         localStorage.setItem(this.storageKey, t);
+        // Keep iOS status-bar / safe-area background in sync with the theme
+        const metaThemeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+        if (metaThemeColor) {
+          metaThemeColor.content = THEME_COLORS[t];
+        }
       }
     });
   }
