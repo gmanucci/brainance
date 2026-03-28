@@ -190,5 +190,41 @@
     "topics": ["geral"],
     "localPath": null,
     "officialUrl": "https://conteudo.cvm.gov.br/legislacao/deliberacoes/deli734.html"
+  },
+  {
+    "id": "cvm-resolucao-088",
+    "title": "Resolução CVM nº 88 — Ambiente Regulatório Experimental (Sandbox)",
+    "issuer": "CVM",
+    "type": "Resolução",
+    "number": "88",
+    "date": "2022-05-05",
+    "summary": "Institui o Ambiente Regulatório Experimental (ARE) da CVM, permitindo que empresas testem modelos de negócio inovadores envolvendo valores mobiliários tokenizados com dispensa temporária de requisitos regulatórios.",
+    "topics": ["tokenizacao", "geral"],
+    "localPath": null,
+    "officialUrl": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol088.html"
+  },
+  {
+    "id": "cvm-resolucao-096",
+    "title": "Resolução CVM nº 96 — Tokens de Valores Mobiliários",
+    "issuer": "CVM",
+    "type": "Resolução",
+    "number": "96",
+    "date": "2022-09-23",
+    "summary": "Amplia o Ambiente Regulatório Experimental e disciplina a emissão de tokens que representam valores mobiliários, estabelecendo critérios de classificação, registro, custódia e obrigações de KYC/AML para emissores e distribuidores.",
+    "topics": ["tokenizacao", "titulos", "geral"],
+    "localPath": null,
+    "officialUrl": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol096.html"
+  },
+  {
+    "id": "lei-14478-2022",
+    "title": "Lei nº 14.478/2022 — Marco Legal dos Criptoativos",
+    "issuer": "Congresso Nacional",
+    "type": "Lei",
+    "number": "14.478",
+    "date": "2022-12-21",
+    "summary": "Estabelece o arcabouço legal para prestadores de serviços de ativos virtuais (VASPs) no Brasil, definindo ativo virtual, obrigando autorização prévia do Banco Central para operar, e impondo regras de AML, segregação patrimonial e proteção ao consumidor.",
+    "topics": ["tokenizacao", "geral"],
+    "localPath": null,
+    "officialUrl": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm"
   }
 ]

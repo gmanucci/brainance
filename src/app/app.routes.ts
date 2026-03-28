@@ -47,6 +47,11 @@ export const routes: Routes = [
           import('./features/rlp/rlp.routes').then(m => m.RLP_ROUTES),
       },
       {
+        path: 'tokenizacao',
+        loadChildren: () =>
+          import('./features/tokenization/tokenization.routes').then(m => m.TOKENIZATION_ROUTES),
+      },
+      {
         path: 'regulamentacao',
         loadChildren: () =>
           import('./features/regulations/regulations.routes').then(m => m.REGULATIONS_ROUTES),

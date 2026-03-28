@@ -78,6 +78,15 @@ export const NAV_CONFIG: NavSection[] = [
     ],
   },
   {
+    title: 'Tokenização',
+    featureKey: 'tokenizacao',
+    items: [
+      { label: 'Visão Geral', path: '/tokenizacao' },
+      { label: 'Renda Fixa Tokenizada', path: '/tokenizacao/renda-fixa' },
+      { label: 'Fundos Tokenizados', path: '/tokenizacao/fundos' },
+    ],
+  },
+  {
     title: 'Regulamentação',
     featureKey: 'regulamentacao',
     items: [

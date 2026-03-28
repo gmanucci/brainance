@@ -1,4 +1,4 @@
-export type RegulationIssuer = 'CVM' | 'ANBIMA' | 'B3' | 'BCB' | 'CMN';
+export type RegulationIssuer = 'CVM' | 'ANBIMA' | 'B3' | 'BCB' | 'CMN' | 'Congresso Nacional';
 
 export type RegulationTopic =
   | 'renda-fixa'
@@ -6,6 +6,8 @@ export type RegulationTopic =
   | 'titulos'
   | 'acoes'
   | 'derivativos'
+  | 'rlp'
+  | 'tokenizacao'
   | 'geral';
 
 export interface Regulation {
