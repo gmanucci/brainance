@@ -32,7 +32,11 @@ export class MarkdownService {
   load(assetPath: string): Observable<SafeHtml> {
     return this.http.get(assetPath, { responseType: 'text' }).pipe(
       map((md) => {
-        const html = marked.parse(md) as string;
+        let html = marked.parse(md) as string;
+        // Wrap every table in a horizontally scrollable container.
+        // Markdown never produces nested <table> elements, so simple string
+        // replacement is safe and avoids a full DOM-parse round-trip.
+        html = html.replace(/<table/g, '<div class="table-wrapper"><table').replace(/<\/table>/g, '</table></div>');
         return this.sanitizer.bypassSecurityTrustHtml(html);
       })
     );

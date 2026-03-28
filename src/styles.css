@@ -2,6 +2,16 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Base background so iOS safe-area insets (status bar, home indicator)
+   match the site background rather than defaulting to white */
+html {
+  background-color: white;
+}
+
+html[data-theme="dark"] {
+  background-color: oklch(0.129 0.042 264.695); /* slate-900 */
+}
+
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 
@@ -45,6 +55,12 @@
 /* Prose customisation for markdown content */
 .prose h1, .prose h2, .prose h3 {
   scroll-margin-top: 5rem;
+}
+
+/* Scrollable wrapper injected around each table in markdown content */
+.prose .table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Table styling — ensure visible borders in both light and dark modes */
