@@ -1,6 +1,6 @@
 import { Component, OnInit, signal, inject, effect, HostListener, ElementRef } from '@angular/core';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MarkdownService } from '../../../core/services/markdown.service';
 import { RegulationBadge } from '../regulation-badge/regulation-badge';
 import mermaid from 'mermaid';
@@ -14,6 +14,7 @@ mermaid.initialize({ startOnLoad: false, securityLevel: 'antiscript' });
 })
 export class TopicPage implements OnInit {
   private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
   private readonly markdownService = inject(MarkdownService);
   private readonly elementRef = inject(ElementRef);
   private readonly sanitizer = inject(DomSanitizer);
@@ -70,6 +71,17 @@ export class TopicPage implements OnInit {
   @HostListener('click', ['$event'])
   onHostClick(event: MouseEvent): void {
     const target = event.target as HTMLElement;
+
+    // Intercept clicks on internal relative links rendered from markdown so that
+    // they navigate relative to the current route instead of the site root.
+    // E.g. clicking `[CDB](cdb)` from `/renda-fixa` should go to `/renda-fixa/cdb`,
+    // not `/cdb`. External links, absolute paths and pure in-page anchors are
+    // left to the browser's default handling.
+    const anchor = target.closest<HTMLAnchorElement>('a[href]');
+    if (anchor && this.tryNavigateRelative(anchor, event)) {
+      return;
+    }
+
     const pre = target.closest<HTMLElement>('pre.mermaid');
     const bar = target.closest<HTMLElement>('.mermaid-bar');
 
@@ -82,6 +94,53 @@ export class TopicPage implements OnInit {
         this.openDiagram(svg as SVGElement);
       }
     }
+  }
+
+  /**
+   * Routes a relative anchor through the Angular Router using the current
+   * ActivatedRoute as the base. Returns true when navigation was handled.
+   */
+  private tryNavigateRelative(anchor: HTMLAnchorElement, event: MouseEvent): boolean {
+    // Respect modifier keys / non-primary buttons so users can still open
+    // links in a new tab / window.
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
+      return false;
+    }
+    if (anchor.target && anchor.target !== '' && anchor.target !== '_self') {
+      return false;
+    }
+
+    const rawHref = anchor.getAttribute('href');
+    if (!rawHref) return false;
+
+    // Skip external schemes, protocol-relative URLs, absolute paths and
+    // pure in-page anchors. Everything else is treated as a relative route.
+    if (
+      rawHref.startsWith('#') ||
+      rawHref.startsWith('/') ||
+      rawHref.startsWith('mailto:') ||
+      rawHref.startsWith('tel:') ||
+      /^[a-z][a-z0-9+.-]*:\/\//i.test(rawHref)
+    ) {
+      return false;
+    }
+
+    const [pathAndQuery, fragment] = rawHref.split('#');
+    const [path, query] = pathAndQuery.split('?');
+    const segments = path.split('/').filter((s) => s.length > 0);
+    if (segments.length === 0) return false;
+
+    const queryParams = query
+      ? Object.fromEntries(new URLSearchParams(query).entries())
+      : undefined;
+
+    event.preventDefault();
+    this.router.navigate(segments, {
+      relativeTo: this.route,
+      queryParams,
+      fragment: fragment || undefined,
+    });
+    return true;
   }
 
   openDiagram(svg: SVGElement): void {
