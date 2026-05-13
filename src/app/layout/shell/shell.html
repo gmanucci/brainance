@@ -2,6 +2,11 @@
 
 <app-sidebar />
 
-<main class="md:ml-64 mt-14 min-h-screen bg-white dark:bg-slate-900">
+<main
+  class="min-h-screen bg-white dark:bg-slate-900 transition-[margin] duration-300 ease-out"
+  style="margin-top: calc(3.5rem + env(safe-area-inset-top));"
+  [class.md:ml-64]="sidebarService.isOpen()"
+  [class.md:ml-0]="!sidebarService.isOpen()"
+>
   <router-outlet />
 </main>

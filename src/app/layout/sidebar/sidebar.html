@@ -1,5 +1,18 @@
+<!-- Backdrop (mobile only): tap to close when sidebar is open -->
+@if (sidebarService.isOpen()) {
+  <div
+    class="md:hidden fixed inset-0 top-14 z-30 bg-slate-900/40 backdrop-blur-sm"
+    (click)="sidebarService.close()"
+    aria-hidden="true"
+  ></div>
+}
+
 <aside
-  class="hidden md:block fixed top-14 left-0 bottom-0 w-64 overflow-y-auto border-r border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900 py-6 px-4"
+  id="app-sidebar"
+  class="liquid-glass-sidebar fixed top-14 left-0 bottom-0 w-64 overflow-y-auto z-40 py-6 px-4 transform transition-transform duration-300 ease-out will-change-transform"
+  [class.translate-x-0]="sidebarService.isOpen()"
+  [class.-translate-x-full]="!sidebarService.isOpen()"
+  [attr.aria-hidden]="!sidebarService.isOpen()"
 >
   <nav>
     @for (section of navSections; track section.featureKey) {

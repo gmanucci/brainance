@@ -4,8 +4,11 @@ import { isPlatformBrowser } from '@angular/common';
 export type Theme = 'light' | 'dark';
 
 const THEME_COLORS: Record<Theme, string> = {
-  light: '#ffffff',
-  dark: '#0f172a', // Tailwind slate-900
+  // iOS 26 “Liquid Glass” top-bar tints — slightly translucent-looking
+  // values that match the navbar surface color so the iOS status bar
+  // blends seamlessly with the in-app glass top bar.
+  light: '#f6f7fb',
+  dark: '#0b1220',
 };
 
 @Injectable({ providedIn: 'root' })

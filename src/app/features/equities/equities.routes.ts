@@ -42,4 +42,12 @@ export const EQUITIES_ROUTES: Routes = [
       regulationIds: ['cvm-resolucao-160', 'anbima-codigo-distribuicao'],
     },
   },
+  {
+    path: 'fix-protocol',
+    component: TopicPage,
+    data: {
+      assetPath: 'assets/content/acoes/fix-protocol.md',
+      regulationIds: ['cvm-resolucao-080', 'b3-regulamento-acoes'],
+    },
+  },
 ];

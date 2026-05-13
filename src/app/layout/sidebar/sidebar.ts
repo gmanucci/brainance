@@ -2,6 +2,7 @@ import { Component, signal, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NAV_CONFIG } from '../../core/config/nav.config';
 import { NavSection } from '../../core/models/nav.model';
+import { SidebarService } from '../../core/services/sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,6 +10,7 @@ import { NavSection } from '../../core/models/nav.model';
   templateUrl: './sidebar.html',
 })
 export class Sidebar {
+  readonly sidebarService = inject(SidebarService);
   readonly navSections: NavSection[] = NAV_CONFIG;
   readonly openSections = signal<Set<string>>(new Set(NAV_CONFIG.map((s) => s.featureKey)));
 

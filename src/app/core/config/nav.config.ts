@@ -43,6 +43,7 @@ export const NAV_CONFIG: NavSection[] = [
       { label: 'BDR', path: '/acoes/bdr' },
       { label: 'ETF', path: '/acoes/etf' },
       { label: 'IPOs', path: '/acoes/ipos' },
+      { label: 'Protocolo FIX', path: '/acoes/fix-protocol' },
     ],
   },
   {
